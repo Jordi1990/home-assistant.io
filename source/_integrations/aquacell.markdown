@@ -19,9 +19,12 @@ You will need your Aquacell account information as used in the **AquaCell** app.
 
 This integration also supports [Harvey](https://www.harveywatersofteners.co.uk/) softeners.
 
-<div class='note warning'>
-This integration only works with <b>AquaCell</b> or <b>Harvey</b> devices which have an <b>i-Lid</b> and are configured through the 'Mijn AquaCell' or 'My Harvey' mobile app.
-</div>
+## Supported devices
+
+This integration only works softener models which have an <b>i-Lid</b> and are configured through the 'Mijn AquaCell' or 'My Harvey' mobile app.
+These models are also recognizable by the required curved salt blocks.
+- [AquaCell](https://www.aquacell-waterontharder.nl/aquacell)
+- [HarveyArc Water Softener](https://www.harveywatersofteners.co.uk/products/water-softeners/harveyarc-water-softener)
 
 {% include integrations/config_flow.md %}
 
@@ -42,12 +45,27 @@ This integration provides {% term sensors %} for the following information from 
 
 - Percentage of salt remaining.
 - Time remaining until 0% salt level is reached.
-- iLid battery level.
+- i-Lid battery level.
 - Wi-Fi signal strength.
 
-<div class="note">
-The device does not update frequently, the integration polls the information once a day from the cloud.
-</div>
+## Examples
+
+### Send a notification when your salt level is low
+You can create an automation that sends a notification when the salt level is low, similar to the official app but more flexible.
+
+### Monitor salt usage over time
+You can easily plot the history of the salt level sensors over time, which can give you more insight on usage.
+
+## Data updates
+The device does not update frequently, the integration is {% term polling %} new data every day from the cloud.
+
+## Known limitations
+- No local API.
+
+## Troubleshooting
+
+### Can’t setup the device
+Make sure the device is fully setup through the official app.
 
 ## Remove integration
 
