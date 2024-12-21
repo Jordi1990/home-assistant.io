@@ -14,16 +14,27 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-AquaCell is a water-softening device. The **AquaCell** {% term integration %} allows you to monitor your AquaCell device in Home Assistant.
+AquaCell is a water-softening device. The [AquaCell](https://www.aquacell-waterontharder.nl/) {% term integration %} allows you to monitor your AquaCell device in Home Assistant.
 You will need your Aquacell account information as used in the **AquaCell** app.
 
-This integration also supports **Harvey** softeners.
-
-{% include integrations/config_flow.md %}
+This integration also supports [Harvey](https://www.harveywatersofteners.co.uk/) softeners.
 
 <div class='note warning'>
 This integration only works with <b>AquaCell</b> or <b>Harvey</b> devices which have an <b>i-Lid</b> and are configured through the 'Mijn AquaCell' or 'My Harvey' mobile app.
 </div>
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Email address:
+  description: The email address used to login to the mobile app used to monitor the softener.
+  required: true
+  type: string
+Password:
+  description: The password used to login to the mobile app used to monitor the softener.
+  required: true
+  type: string
+{% endconfiguration_basic %}
 
 ## Sensors
 
@@ -37,3 +48,9 @@ This integration provides {% term sensors %} for the following information from 
 <div class="note">
 The device does not update frequently, the integration polls the information once a day from the cloud.
 </div>
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
