@@ -54,9 +54,9 @@ This integration provides {% term sensors %} for the following information from 
 
 ## Use cases
 
-The integration provides sensors to monitor salt level of the softener. You can use this information to create automations, for example, to notify you when the salt level is low and a refill is needed.
+The integration provides sensors to monitor the salt level of the softener. You can use this information to create automations, for example, to notify you when the salt level is low and a refill is needed.
 
-You can also easily plot the history of the salt level sensors over time, which can give you more insight on usage.
+You can also easily plot the history of the salt level sensors over time, which can give you more insight into usage.
 
 ## Examples
 
