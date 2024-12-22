@@ -26,6 +26,10 @@ These models are also recognizable by the required curved salt blocks.
 - [AquaCell](https://www.aquacell-waterontharder.nl/aquacell)
 - [HarveyArc Water Softener](https://www.harveywatersofteners.co.uk/products/water-softeners/harveyarc-water-softener)
 
+## Prerequisites
+
+The softener needs to be setup with the official app before being able to integrate it in Home Assistant.
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -41,31 +45,55 @@ Password:
 
 ## Sensors
 
-This integration provides {% term sensors %} for the following information from the AquaCell device:
+This integration provides {% term sensors %} for the following information from the softener device:
 
 - Percentage of salt remaining.
 - Time remaining until 0% salt level is reached.
 - i-Lid battery level.
 - Wi-Fi signal strength.
 
+## Use cases
+
+The integration provides sensors to monitor salt level of the softener. You can use this information to create automations, for example, to notify you when the salt level is low and a refill is needed. Similair to the official app but now more flexible.
+
+You can also easily plot the history of the salt level sensors over time, which can give you more insight on usage.
+
 ## Examples
 
-### Send a notification when your salt level is low
-You can create an automation that sends a notification when the salt level is low, similar to the official app but more flexible.
+The following examples show how to use this integration in Home Assistant automations.
 
-### Monitor salt usage over time
-You can easily plot the history of the salt level sensors over time, which can give you more insight on usage.
+### Send notification when salt is running out
+The following example sends a notification to your mobile device when the device is almost out of salt.
+
+```yaml
+automation:
+  - alias: "Notify when almost out of salt"
+    triggers:
+      - trigger: numeric_state
+        entity_id:
+          - sensor.my_softener_salt_left_side_percentage
+          - sensor.my_softener_salt_right_side_percentage
+        below: 10
+
+    actions:
+      - action: notify.mobile_app_your_device
+        data:
+          title: "Softener is almost out of salt"
+          message: > 
+            Don't forget to place new salt blocks.
+```
 
 ## Data updates
+
 The device does not update frequently, the integration is {% term polling %} new data every day from the cloud.
 
 ## Known limitations
-- No local API.
+
+There are no known limitations for this integration.
 
 ## Troubleshooting
 
-### Can’t setup the device
-Make sure the device is fully setup through the official app.
+There are no commonly known issues with this integration.
 
 ## Remove integration
 
