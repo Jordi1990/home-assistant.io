@@ -21,7 +21,7 @@ This integration also supports [Harvey](https://www.harveywatersofteners.co.uk/)
 
 ## Supported devices
 
-This integration only works softener models which have an <b>i-Lid</b> and are configured through the 'Mijn AquaCell' or 'My Harvey' mobile app.
+This integration only works for softener models which have an <b>i-Lid</b> and are configured through the 'Mijn AquaCell' or 'My Harvey' mobile app.
 These models are also recognizable by the required curved salt blocks.
 - [AquaCell](https://www.aquacell-waterontharder.nl/aquacell)
 - [HarveyArc Water Softener](https://www.harveywatersofteners.co.uk/products/water-softeners/harveyarc-water-softener)
