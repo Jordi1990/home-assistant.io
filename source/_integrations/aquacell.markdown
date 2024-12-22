@@ -21,24 +21,24 @@ This integration also supports [Harvey](https://www.harveywatersofteners.co.uk/)
 
 ## Supported devices
 
-This integration only works for softener models which have an <b>i-Lid</b> and are configured through the 'Mijn AquaCell' or 'My Harvey' mobile app.
+This integration only works for softener models which have an **i-Lid** and are configured through the 'Mijn AquaCell' or 'My Harvey' mobile app.
 These models are also recognizable by the required curved salt blocks.
 - [AquaCell](https://www.aquacell-waterontharder.nl/aquacell)
 - [HarveyArc Water Softener](https://www.harveywatersofteners.co.uk/products/water-softeners/harveyarc-water-softener)
 
 ## Prerequisites
 
-The softener needs to be setup with the official app before being able to integrate it in Home Assistant.
+The softener needs to be set up with the official app before being able to integrate it in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Email address:
-  description: The email address used to login to the mobile app used to monitor the softener.
+  description: The email address used to log in to the mobile app used to monitor the softener.
   required: true
   type: string
 Password:
-  description: The password used to login to the mobile app used to monitor the softener.
+  description: The password used to log in to the mobile app used to monitor the softener.
   required: true
   type: string
 {% endconfiguration_basic %}
@@ -54,7 +54,7 @@ This integration provides {% term sensors %} for the following information from 
 
 ## Use cases
 
-The integration provides sensors to monitor salt level of the softener. You can use this information to create automations, for example, to notify you when the salt level is low and a refill is needed. Similair to the official app but now more flexible.
+The integration provides sensors to monitor salt level of the softener. You can use this information to create automations, for example, to notify you when the salt level is low and a refill is needed.
 
 You can also easily plot the history of the salt level sensors over time, which can give you more insight on usage.
 
@@ -63,6 +63,7 @@ You can also easily plot the history of the salt level sensors over time, which 
 The following examples show how to use this integration in Home Assistant automations.
 
 ### Send notification when salt is running out
+
 The following example sends a notification to your mobile device when the salt is running out on either side.
 
 ```yaml
