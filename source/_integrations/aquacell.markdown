@@ -63,11 +63,11 @@ You can also easily plot the history of the salt level sensors over time, which 
 The following examples show how to use this integration in Home Assistant automations.
 
 ### Send notification when salt is running out
-The following example sends a notification to your mobile device when the device is almost out of salt.
+The following example sends a notification to your mobile device when the salt is running out on either side.
 
 ```yaml
 automation:
-  - alias: "Notify when almost out of salt"
+  - alias: "Notify when salt is running low"
     triggers:
       - trigger: numeric_state
         entity_id:
@@ -80,7 +80,7 @@ automation:
         data:
           title: "Softener is almost out of salt"
           message: > 
-            Don't forget to place new salt blocks.
+            Place new salt blocks in the softener.
 ```
 
 ## Data updates
