@@ -24,13 +24,7 @@ We hope you've been able to enjoy some time in, and away, from your smart home t
 
 Enjoy the release!
 
-{% tip %}
-
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=dSbCzRhbOVA)
-4 September 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
-
-{% endtip %}
-
+<!--more-->
 
 - [Sections go BIG](#sections-go-big)
   - [Wider sections](#wider-sections)
@@ -45,6 +39,10 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
   - [Farewell to the following](#farewell-to-the-following)
+- [Patch releases](#patch-releases)
+  - [2024.9.1 - September 6](#202491---september-6)
+  - [2024.9.2 - September 16](#202492---september-16)
+  - [2024.9.3 - September 24](#202493---september-24)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -220,6 +218,240 @@ of this release:
   deprecated and now removed. They have been using a deprecated mailbox feature
   that is no longer available.
 
+## Patch releases
+
+We will also release patch releases for Home Assistant 2024.9 in September. These
+patch releases only contain bug fixes. Our goal is to release a patch every
+week (around Friday).
+
+### 2024.9.1 - September 6
+
+- Fix BTHome validate triggers for device with multiple buttons ([@thecode] - [#125183])
+- Improve play media support in LinkPlay ([@silamon] - [#125205])
+- Revert #122676 Yamaha discovery ([@joostlek] - [#125216])
+- Fix blocking call in yale_smart_alarm ([@gjohansson-ST] - [#125255])
+- Don't show input panel if default code provided in envisalink ([@gjohansson-ST] - [#125256])
+- Increase AquaCell timeout and handle timeout exception properly ([@Jordi1990] - [#125263])
+- Bump aiorussound to 3.0.4 ([@noahhusby] - [#125285])
+- Add follower to the PlayingMode enum ([@silamon] - [#125294])
+- Don't allow templating min, max, step in config entry template number ([@emontnemery] - [#125342])
+- Fix for Hue sending effect None at turn_on command while no effect is active ([@marcelveldt] - [#125377]) 
+- Lyric: fixed missed snake case conversions ([@dalinicus] - [#125382])
+- Bump pysmlight to 0.0.14 ([@tl-sl] - [#125387])
+- Bump pypck to 0.7.22 ([@alengwenus] - [#125389])
+- Increase coordinator update_interval for fyta ([@dontinelli] - [#125393])
+- Fix controlling AC temperature in airtouch5 ([@danzel] - [#125394])
+- Bump sfrbox-api to 0.0.10 ([@AlexT59] - [#125405])
+- Improve handling of old firmware versions ([@tl-sl] - [#125406])
+- Set min_power similar to max_power to support all inverters from apsystems ([@mawoka-myblock] - [#124247])
+- Update frontend to 20240906.0 ([@piitaya] - [#125409])
+- Bump pyatv to 0.15.1 ([@postlund] - [#125412])
+
+[#123544]: https://github.com/home-assistant/core/pull/123544
+[#124069]: https://github.com/home-assistant/core/pull/124069
+[#124247]: https://github.com/home-assistant/core/pull/124247
+[#124569]: https://github.com/home-assistant/core/pull/124569
+[#124880]: https://github.com/home-assistant/core/pull/124880
+[#125183]: https://github.com/home-assistant/core/pull/125183
+[#125205]: https://github.com/home-assistant/core/pull/125205
+[#125216]: https://github.com/home-assistant/core/pull/125216
+[#125255]: https://github.com/home-assistant/core/pull/125255
+[#125256]: https://github.com/home-assistant/core/pull/125256
+[#125263]: https://github.com/home-assistant/core/pull/125263
+[#125285]: https://github.com/home-assistant/core/pull/125285
+[#125294]: https://github.com/home-assistant/core/pull/125294
+[#125342]: https://github.com/home-assistant/core/pull/125342
+[#125377]: https://github.com/home-assistant/core/pull/125377
+[#125382]: https://github.com/home-assistant/core/pull/125382
+[#125387]: https://github.com/home-assistant/core/pull/125387
+[#125389]: https://github.com/home-assistant/core/pull/125389
+[#125393]: https://github.com/home-assistant/core/pull/125393
+[#125394]: https://github.com/home-assistant/core/pull/125394
+[#125405]: https://github.com/home-assistant/core/pull/125405
+[#125406]: https://github.com/home-assistant/core/pull/125406
+[#125409]: https://github.com/home-assistant/core/pull/125409
+[#125412]: https://github.com/home-assistant/core/pull/125412
+[@AlexT59]: https://github.com/AlexT59
+[@Jordi1990]: https://github.com/Jordi1990
+[@alengwenus]: https://github.com/alengwenus
+[@balloob]: https://github.com/balloob
+[@dalinicus]: https://github.com/dalinicus
+[@danzel]: https://github.com/danzel
+[@dontinelli]: https://github.com/dontinelli
+[@edenhaus]: https://github.com/edenhaus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@marcelveldt]: https://github.com/marcelveldt
+[@mawoka-myblock]: https://github.com/mawoka-myblock
+[@noahhusby]: https://github.com/noahhusby
+[@piitaya]: https://github.com/piitaya
+[@postlund]: https://github.com/postlund
+[@silamon]: https://github.com/silamon
+[@thecode]: https://github.com/thecode
+[@tl-sl]: https://github.com/tl-sl
+
+### 2024.9.2 - September 16
+
+- Fix Lyric climate Auto mode ([@kristof-mattei] - [#123490])
+- Use default voice id as fallback in get_tts_audio ([@sorgfresser] - [#123624])
+- Fix Schlage removed locks ([@dknowles2] - [#123627])
+- Fix mired range in blebox color temp mode lights ([@swistakm] - [#124258])
+- Update diagnostics for BSBLan ([@liudger] - [#124508])
+- Fix renault plug state ([@tmenguy] - [#125421])
+- Bump yalexs to 8.6.4 ([@bdraco] - [#125442])
+- Bump aiolifx and aiolifx-themes to support more than 82 zones ([@Djelibeybi] - [#125487])
+- Fix yale_smart_alarm on missing key ([@gjohansson-ST] - [#125508])
+- FIx Sonos announce regression issue ([@PeteRager] - [#125515])
+- Update frontend to 20240909.1 ([@piitaya] - [#125610])
+- Update tplink config to include aes keys ([@sdb9696] - [#125685])
+- Bump tplink python-kasa lib to 0.7.3 ([@sdb9696] - [#125686])
+- Fix incomfort invalid setpoint if override is reported as 0.0 ([@jbouwh] - [#125694])
+- Bump to python-nest-sdm to 5.0.1 ([@jonnynch] - [#125706])
+- Remove unused keys from the ZHA config schema ([@puddly] - [#125710])
+- Bump sfrbox-api to 0.0.11 ([@epenet] - [#125732])
+- Update knx-frontend to 2024.9.10.221729 ([@farmio] - [#125734])
+- Bump russound to 0.2.0 ([@akrabi] - [#125743])
+- Fix favorite position missing for Motion Blinds TDBU devices ([@starkillerOG] - [#125750])
+- Add missing Zigbee/Thread firmware config flow translations ([@puddly] - [#125782])
+- Bump lmcloud to 1.2.3 ([@zweckj] - [#125801])
+- Bump ZHA to 0.0.33 ([@puddly] - [#125914])
+- Bump motionblinds to 0.6.25 ([@starkillerOG] - [#125957])
+- Bump govee light local to 1.5.2 ([@Galorhallen] - [#125968])
+- Bump aiorussound to 3.0.5 ([@noahhusby] - [#125975])
+- Abort zeroconf flow on connect error during discovery ([@tl-sl] - [#125980])
+- Pin pyasn1 until fixed ([@hunterjm] - [#125712])
+
+[#123490]: https://github.com/home-assistant/core/pull/123490
+[#123544]: https://github.com/home-assistant/core/pull/123544
+[#123624]: https://github.com/home-assistant/core/pull/123624
+[#123627]: https://github.com/home-assistant/core/pull/123627
+[#124069]: https://github.com/home-assistant/core/pull/124069
+[#124258]: https://github.com/home-assistant/core/pull/124258
+[#124508]: https://github.com/home-assistant/core/pull/124508
+[#124569]: https://github.com/home-assistant/core/pull/124569
+[#124880]: https://github.com/home-assistant/core/pull/124880
+[#125420]: https://github.com/home-assistant/core/pull/125420
+[#125421]: https://github.com/home-assistant/core/pull/125421
+[#125442]: https://github.com/home-assistant/core/pull/125442
+[#125487]: https://github.com/home-assistant/core/pull/125487
+[#125508]: https://github.com/home-assistant/core/pull/125508
+[#125515]: https://github.com/home-assistant/core/pull/125515
+[#125610]: https://github.com/home-assistant/core/pull/125610
+[#125685]: https://github.com/home-assistant/core/pull/125685
+[#125686]: https://github.com/home-assistant/core/pull/125686
+[#125694]: https://github.com/home-assistant/core/pull/125694
+[#125706]: https://github.com/home-assistant/core/pull/125706
+[#125710]: https://github.com/home-assistant/core/pull/125710
+[#125712]: https://github.com/home-assistant/core/pull/125712
+[#125732]: https://github.com/home-assistant/core/pull/125732
+[#125734]: https://github.com/home-assistant/core/pull/125734
+[#125743]: https://github.com/home-assistant/core/pull/125743
+[#125750]: https://github.com/home-assistant/core/pull/125750
+[#125782]: https://github.com/home-assistant/core/pull/125782
+[#125801]: https://github.com/home-assistant/core/pull/125801
+[#125914]: https://github.com/home-assistant/core/pull/125914
+[#125957]: https://github.com/home-assistant/core/pull/125957
+[#125968]: https://github.com/home-assistant/core/pull/125968
+[#125975]: https://github.com/home-assistant/core/pull/125975
+[#125980]: https://github.com/home-assistant/core/pull/125980
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@Galorhallen]: https://github.com/Galorhallen
+[@PeteRager]: https://github.com/PeteRager
+[@akrabi]: https://github.com/akrabi
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@dknowles2]: https://github.com/dknowles2
+[@edenhaus]: https://github.com/edenhaus
+[@epenet]: https://github.com/epenet
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@hunterjm]: https://github.com/hunterjm
+[@jbouwh]: https://github.com/jbouwh
+[@jonnynch]: https://github.com/jonnynch
+[@kristof-mattei]: https://github.com/kristof-mattei
+[@liudger]: https://github.com/liudger
+[@noahhusby]: https://github.com/noahhusby
+[@piitaya]: https://github.com/piitaya
+[@puddly]: https://github.com/puddly
+[@sdb9696]: https://github.com/sdb9696
+[@sorgfresser]: https://github.com/sorgfresser
+[@starkillerOG]: https://github.com/starkillerOG
+[@swistakm]: https://github.com/swistakm
+[@tl-sl]: https://github.com/tl-sl
+[@tmenguy]: https://github.com/tmenguy
+[@zweckj]: https://github.com/zweckj
+
+### 2024.9.3 - September 24
+
+- Fix wall connector state in Teslemetry ([@Bre77] - [#124149])
+- Fix set brightness for Netatmo lights ([@cgtobi] - [#126075])
+- Update Aseko to support new API ([@milanmeu] - [#126133])
+- Fix qbittorrent error when torrent count is 0 ([@DAcodedBEAT] - [#126146])
+- Prevent blocking event loop in ps4 ([@jpbede] - [#126151])
+- Broaden scope of ConfigEntryNotReady in Mealie ([@andrew-codechimp] - [#126208])
+- Fix tibber fails if power production is enabled but no power is produced ([@nohn] - [#126209])
+- Bump pydaikin to 2.13.7 ([@fredrike] - [#126219])
+- Fix Matter climate platform attributes when dedicated OnOff attribute is off ([@marcelveldt] - [#126286])
+- Fix loading KNX UI entities with entity category set ([@farmio] - [#126290])
+- Bump airgradient to 0.9.0 ([@joostlek] - [#126319])
+- Fix next change (scheduler) sensors in AVM FRITZ!SmartHome ([@mib1185] - [#126363])
+- Bump python-holidays to 0.57 ([@gjohansson-ST] - [#126367])
+- Fix surepetcare token update ([@frei-style] - [#126385])
+- Fix due date calculation for future dailies in Habitica integration ([@tr4nt0r] - [#126403])
+- Bump pydrawise to 2024.9.0 ([@dknowles2] - [#126431])
+- Add support for new JVC Projector auth method ([@SteveEasley] - [#126453])
+- Fix blocking call in Bang & Olufsen API client initialization ([@mj23000] - [#126456])
+- Bump mozart_api to 3.4.1.8.8 ([@mj23000] - [#126334])
+
+[#123544]: https://github.com/home-assistant/core/pull/123544
+[#124069]: https://github.com/home-assistant/core/pull/124069
+[#124149]: https://github.com/home-assistant/core/pull/124149
+[#124569]: https://github.com/home-assistant/core/pull/124569
+[#124880]: https://github.com/home-assistant/core/pull/124880
+[#125420]: https://github.com/home-assistant/core/pull/125420
+[#126062]: https://github.com/home-assistant/core/pull/126062
+[#126075]: https://github.com/home-assistant/core/pull/126075
+[#126133]: https://github.com/home-assistant/core/pull/126133
+[#126146]: https://github.com/home-assistant/core/pull/126146
+[#126151]: https://github.com/home-assistant/core/pull/126151
+[#126208]: https://github.com/home-assistant/core/pull/126208
+[#126209]: https://github.com/home-assistant/core/pull/126209
+[#126219]: https://github.com/home-assistant/core/pull/126219
+[#126286]: https://github.com/home-assistant/core/pull/126286
+[#126290]: https://github.com/home-assistant/core/pull/126290
+[#126319]: https://github.com/home-assistant/core/pull/126319
+[#126334]: https://github.com/home-assistant/core/pull/126334
+[#126363]: https://github.com/home-assistant/core/pull/126363
+[#126367]: https://github.com/home-assistant/core/pull/126367
+[#126385]: https://github.com/home-assistant/core/pull/126385
+[#126403]: https://github.com/home-assistant/core/pull/126403
+[#126431]: https://github.com/home-assistant/core/pull/126431
+[#126453]: https://github.com/home-assistant/core/pull/126453
+[#126456]: https://github.com/home-assistant/core/pull/126456
+[@Bre77]: https://github.com/Bre77
+[@DAcodedBEAT]: https://github.com/DAcodedBEAT
+[@SteveEasley]: https://github.com/SteveEasley
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@balloob]: https://github.com/balloob
+[@cgtobi]: https://github.com/cgtobi
+[@dknowles2]: https://github.com/dknowles2
+[@edenhaus]: https://github.com/edenhaus
+[@farmio]: https://github.com/farmio
+[@fredrike]: https://github.com/fredrike
+[@frei-style]: https://github.com/frei-style
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@marcelveldt]: https://github.com/marcelveldt
+[@mib1185]: https://github.com/mib1185
+[@milanmeu]: https://github.com/milanmeu
+[@mj23000]: https://github.com/mj23000
+[@nohn]: https://github.com/nohn
+[@tr4nt0r]: https://github.com/tr4nt0r
 
 ## Need help? Join the community!
 

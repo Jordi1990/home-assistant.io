@@ -358,7 +358,7 @@ To add a single entity in accessory mode:
 
 ## Configure Filter
 
-By default, all entities except categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
+By default, all entities except hidden entities and categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -375,7 +375,7 @@ homekit:
 
 {% include common-tasks/filters.md %}
 
-Categorized entities are not included (config, diagnostic, and system entities) unless they are explicitly matched by `include_entity_globs` or `include_entities` or selected in the UI in include mode.
+Hidden entities and categorized entities (config, diagnostic, and system entities) are not included unless they are explicitly matched by `include_entity_globs` or `include_entities` or selected in the UI in include mode.
 
 ## Docker Network Isolation
 
@@ -454,17 +454,17 @@ The key name will be available in the event data in the `key_name` field. Exampl
 
 ```yaml
 automation:
-  trigger:
-    platform: event
-    event_type: homekit_tv_remote_key_pressed
-    event_data:
-      key_name: arrow_right
+  triggers:
+    - trigger: event
+      event_type: homekit_tv_remote_key_pressed
+      event_data:
+        key_name: arrow_right
 
   # Send the arrow right key via a broadlink IR blaster
-  action:
-    action: broadlink.send
-    host: 192.168.1.55
-    packet: XXXXXXXX
+  actions:
+    - action: broadlink.send
+      host: 192.168.1.55
+      packet: XXXXXXXX
 ```
 
 ## Events
@@ -474,13 +474,13 @@ The HomeKit integration emits `homekit_state_change` events. These events can be
 ```yaml
 # Example for handling a HomeKit event
 automation:
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: homekit_state_change
       event_data:
         entity_id: cover.garage_door
         action: open_cover
-  action:
+  actions:
     - action: persistent_notification.create
       data:
         message: "The garage door got opened via HomeKit"

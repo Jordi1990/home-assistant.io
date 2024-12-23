@@ -43,7 +43,6 @@ ha_platforms:
   - update
   - valve
 ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 Integrate [Shelly devices](https://shelly.com) into Home Assistant.
@@ -125,7 +124,15 @@ Names are set from the device web page:
 The integration uses the following strategy to name its entities:
 
 - If `Channel Name` is set in the device, the integration will use it to generate the entities' name, e.g. `Kitchen Light`
-- If `Channel Name` is set to the default value, the integration will use the `Device ID` and default channel name to generate the entities' name, e.g. `ShellyPro4PM-9808D1D8B912 switch_0`.
+- If `Channel Name` is set to the default value, the integration will use the `Device ID` and default channel name to generate the entities' name, e.g. `ShellyPro4PM-9808D1D8B912 Switch 0`.
+
+## Cover entities
+
+Shelly 2PM Gen3 supports `tilt` for `cover` entities. To enable this feature, you need to configure the device:
+
+- Change the device profile to `Cover` (**Settings** > **Device profile**)
+- Calibrate the cover (**Home** > **Cover** > **Calibration** > **Start**)
+- Enable and configure **Slat control** (**Home** > **Cover** > **Slat control**)
 
 ## Binary input sensors
 
@@ -191,30 +198,30 @@ You can also create automations using YAML, for example:
 
 ```yaml
 - alias: "Toggle living room light"
-  trigger:
-    platform: event
-    event_type: shelly.click
-    event_data:
-      device: shellyswitch25-AABBCC
-      channel: 1
-      click_type: single
-  action:
-    action: light.toggle
-    target:
-      entity_id: light.living_room
+  triggers:
+    - trigger: event
+      event_type: shelly.click
+      event_data:
+        device: shellyswitch25-AABBCC
+        channel: 1
+        click_type: single
+  actions:
+    - action: light.toggle
+      target:
+        entity_id: light.living_room
 
 - alias: "Toggle living room lamp"
-  trigger:
-    platform: event
-    event_type: shelly.click
-    event_data:
-      device: shellyswitch25-AABBCC
-      channel: 2
-      click_type: long
-  action:
-    action: light.toggle
-    target:
-      entity_id: light.lamp_living_room
+  triggers:
+    - trigger: event
+      event_type: shelly.click
+      event_data:
+        device: shellyswitch25-AABBCC
+        channel: 2
+        click_type: long
+  actions:
+    - action: light.toggle
+      target:
+        entity_id: light.lamp_living_room
 ```
 
 ### Possible values for `click_type`
@@ -321,6 +328,10 @@ The integration supports the following virtual components:
 - `number` in `label` mode, for which a `sensor` platform entity is created
 - `text` in `field` mode, for which a `text` platform entity is created
 - `text` in `label` mode, for which a `sensor` platform entity is created
+
+## Scripts (generation 2 and 3)
+
+For each device script, the integration creates a `switch` entity that allows you to control the script. These entities are disabled by default.
 
 ## Additional info
 

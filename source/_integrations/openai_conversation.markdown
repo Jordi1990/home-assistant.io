@@ -43,34 +43,27 @@ The OpenAI key is used to authenticate requests to the OpenAI API. To generate a
 - Visit the [API Keys page](https://platform.openai.com/account/api-keys) to retrieve the API key you'll use to configure the integration.
 
 {% include integrations/option_flow.md %}
+
 {% configuration_basic %}
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
-
 Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
-
 Recommended settings:
   description: If enabled, the recommended model and settings are chosen.
-
 {% endconfiguration_basic %}
 
 If you choose to not use the recommended settings, you can configure the following options:
 
 {% configuration_basic %}
-
 Model:
   description: The GPT language model is used for text generation. You can find more details on the available models in the [OpenAI GPT-3.5 Turbo Documentation](https://platform.openai.com/docs/models/gpt-3-5-turbo), [OpenAI GPT-4 Turbo and GPT-4 Documentation](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4), or [GPT-4o Documentation](https://platform.openai.com/docs/models/gpt-4o). The default is "gpt-4o".
-
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate in its completion of the prompt. For more information, see the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction).
-
 Temperature:
   description: A value that determines the level of creativity and risk-taking the model should use when generating text. A higher temperature means the model is more likely to generate unexpected results, while a lower temperature results in more deterministic results. See the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction) for more information.
-
 Top P:
   description: An alternative to temperature, top_p determines the proportion of the most likely word choices the model should consider when generating text. A higher top_p means the model will only consider the most likely words, while a lower top_p means a wider range of words, including less likely ones, will be considered. For more information, see the [OpenAI Completion API Reference](https://platform.openai.com/docs/api-reference/completions/create#completions/create-top_p).
-
 {% endconfiguration_basic %}
 
 ## Talking to Super Mario over the phone
@@ -129,10 +122,10 @@ Select **YAML Mode** to reveal the *config_entry* value to be used in the below 
 ```yaml
 automation:
   - alias: "Update image when weather changes"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: weather.home
-    action:
+    actions:
       - alias: "Ask OpenAI to generate an image"
         action: openai_conversation.generate_image
         response_variable: generated_image
@@ -148,10 +141,10 @@ automation:
           url: '{{ generated_image.url }}'
 
 template:
-  - trigger:
-      alias: "Update image when a new weather image is generated"
-      platform: event
-      event_type: new_weather_image
+  - triggers:
+      - alias: "Update image when a new weather image is generated"
+        trigger: event
+        event_type: new_weather_image
     image:
       name: "AI generated image of New York"
       url: "{{ trigger.event.data.url }}"

@@ -171,7 +171,6 @@ For a SmartThings thermostat to be represented by the climate platform, it must 
 | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
 | [`thermostat`](https://developer.smartthings.com/docs/devices/capabilities/deprecated#thermostat) (set a)                                           | `hvac mode`, `hvac action`, `target temp high`, `target temp low` and `fan mode` |
 | [`thermostatMode`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatMode) (set b)                       | `hvac mode`                                                                      |
-| [`thermostatCoolingSetpoint`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatCoolingSetpoint) (seb b) | `target temp low`                                                                |
 | [`thermostatHeatingSetpoint`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatHeatingSetpoint) (set b) | `target temp high`                                                               |
 | [`temperatureMeasurement`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#temperatureMeasurement) (set b)       |
 | [`thermostatOperatingState`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatOperatingState)           | `hvac action`                                                                    |
@@ -303,7 +302,7 @@ The personal access token does not match the expected format. Make sure you are 
 
 You can fix this by using the SmartThings App to re-grant authorization to the API token you created before. 
 1. Open SmartThings app on your mobile device (not HA).
-2. Select **Automations** from bottom.
+2. Select **Routines** from bottom.
 3. Select your Home Assistant automation from the list.
 4. Select **Done**, then select **Allow**.
 5. Reload your SmartThings integration from Home Assistant Devices panel.

@@ -27,24 +27,14 @@ and visualization of multiple types of cameras.
 {% configuration_basic %}
 url:
   description: The URL of the motionEye server itself -- **not** the URL for the camera stream(s) that it makes available.
-  required: true
-  type: string
 admin_username:
   description: The username of the motionEye administrative account, used for changing camera settings.
-  required: true
-  type: string
 admin_password:
   description: The password of the motionEye administrative account.
-  required: true
-  type: string
 surveillance_username:
   description: The username of the motionEye surveillance user, used to authenticate video streams.
-  required: true
-  type: string
 surveillance_password:
   description: The password of the motionEye surveillance account.
-  required: true
-  type: string
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
@@ -351,11 +341,11 @@ must be switched on for this automation to work (controllable via `switch.<name>
 
 ```yaml
 - alias: "Set camera text overlay to armed"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: alarm_control_panel.home_alarm
       to: "armed_away"
-  action:
+  actions:
     - action: motioneye.set_text_overlay
       target:
         entity_id: camera.living_room
@@ -364,11 +354,11 @@ must be switched on for this automation to work (controllable via `switch.<name>
         custom_left_text: "Alarm is ARMED"
 
 - alias: "Set camera text overlay to disarmed"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: alarm_control_panel.home_alarm
       to: "disarmed"
-  action:
+  actions:
     - action: motioneye.set_text_overlay
       target:
         entity_id: camera.living_room
@@ -385,13 +375,13 @@ An automation to cast stored movie clips to a TV as they arrive.
 
 ```yaml
 - alias: "Cast motionEye movie clips"
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: motioneye.file_stored
       event_data:
         # Only cast video.
         file_type: "8"
-  action:
+  actions:
     - action: media_player.play_media
       target:
         entity_id: media_player.kitchen_tv

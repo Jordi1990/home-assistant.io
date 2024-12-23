@@ -31,6 +31,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Dooya](http://www.dooya.com/)
 - [Gaviota](https://www.gaviotagroup.com/en/)
 - [Havana Shade](https://havanashade.com/)
+- [Heicko](https://heicko.de/en/tubular-motors/controls/e-smart-home/usb-smart-home-stick-bi-direktional-1-st.html)
 - [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
 - [Inspired Shades](https://www.inspired-shades.com/)
 - [iSmartWindow](https://www.ismartwindow.co.nz/)
@@ -62,6 +63,8 @@ The following bridges are reported to work with this integration:
 - Linx Hub USB
 - SIRO Connect SI7002
 - SIRO Connect SI7005
+- Heicko Smart Stick 1ST
+- DD7006A Smart Home bridge
 
 {% include integrations/config_flow.md %}
 
@@ -92,9 +95,18 @@ In the Brel Home app on Android go to the `me` page (home screen 4th tab), tap 5
 
 In the official Bloc Blinds app go to settings (three bars > gear icon), go to the `About` page, Tap five time on the bloc blinds icon in the middle and a pop-up with the key will be shown.
 
+### 3 Day Blinds app
+
+In the 3 Day Blinds app go to the home screen, go to settings (three bars in the upper left corner > gear icon), select `About` from the bottom, quickly tap the 3 Day Blinds icon in the center of the screen 5 times and a pop-up with the key will be shown.
+
 ### Connector app
 
-Click the about page of the connector app 5 times to get the key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)).
+ To get the API key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)), follow these steps:
+ 
+  1. In the left sidebar of the app, open the **Settings** {% icon "mdi:gear-outline" %} (gear icon). 
+  2. Select the **About** page of the Connector app.
+  3. Tap the screen 5 times while being on the **About** page. 
+      - This opens a window with the API key.
 
 ## Favorite position
 
@@ -205,12 +217,11 @@ You only have to create one automation with only one Motionblinds cover as entit
 Example YAML automation for custom polling interval (every minute):
 
 ```yaml
-alias: Motionblinds polling automation
-mode: single
-trigger:
-  - platform: time_pattern
+alias: "Motionblinds polling automation"
+triggers:
+  - trigger: time_pattern
     minutes: "/1"
-action:
+actions:
   - action: homeassistant.update_entity
     target:
       entity_id: cover.motion_shade
