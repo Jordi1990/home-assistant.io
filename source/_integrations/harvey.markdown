@@ -7,7 +7,7 @@ ha_domain: harvey
 ha_release: 2025.1
 ha_integration_type: virtual
 ha_supporting_domain: aquacell
-ha_supporting_integration: aquacell
+ha_supporting_integration: AquaCell
 ha_codeowners:
   - '@Jordi1990'
 ha_config_flow: true
